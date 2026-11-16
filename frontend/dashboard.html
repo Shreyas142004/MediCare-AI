@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - MediCare AI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">✚</span>
+        <span>MediCare<span style="color:var(--secondary)">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="scanner.html" class="nav-link">Scanner</a></li>
+        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Injected dynamically by main.js -->
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main class="container dashboard-main">
+    <!-- Welcome Header -->
+    <div class="dashboard-welcome-header">
+      <div>
+        <h1>Welcome, <span id="user-welcome-name" style="color:var(--primary);">Member</span></h1>
+        <p class="text-muted">Here is your medicine identification summary and recent packaging scans.</p>
+      </div>
+      <div>
+        <a href="scanner.html" class="btn btn-primary btn-lg">📷 Scan New Strip</a>
+      </div>
+    </div>
+
+    <!-- Metrics Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon icon-blue">📋</div>
+        <div class="stat-info">
+          <h3 id="metric-total-scans">0</h3>
+          <p>Total Scans Performed</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon icon-green">🎯</div>
+        <div class="stat-info">
+          <h3 id="metric-high-conf">0</h3>
+          <p>High-Confidence Matches</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon icon-purple">⚡</div>
+        <div class="stat-info">
+          <h3 id="metric-match-rate">100%</h3>
+          <p>Recognition Accuracy</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon icon-amber">🗄️</div>
+        <div class="stat-info">
+          <h3>149,267</h3>
+          <p>Cataloged Medicines</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="dashboard-main-grid">
+      <!-- Recent Scans Table -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">🕒 Recent Medicine Scans</h3>
+          <a href="history.html" class="btn-outline btn btn-sm">View All</a>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Medicine / Brand</th>
+                <th>Confidence</th>
+                <th>Vision Engine</th>
+                <th>Date & Time</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="recent-scans-body">
+              <tr>
+                <td colspan="5" style="text-align:center; padding: 2rem; color:var(--text-muted);">
+                  Loading scan records...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quick Actions & Safety Summary -->
+      <div>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <h3 class="card-title">⚡ Quick Actions</h3>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <a href="scanner.html" class="btn-block btn btn-primary">📷 Scan Tablet Strip</a>
+            <a href="history.html" class="btn-block btn-outline btn">📋 Search Past Scans</a>
+            <a href="profile.html" class="btn-block btn-outline btn">⚙ Update Health Profile</a>
+          </div>
+        </div>
+
+        <div class="card" style="background:var(--secondary-bg); border-color:#a7f3d0;">
+          <h4 style="color:var(--secondary-dark); margin-bottom:0.5rem;">💡 Best Scanning Practices</h4>
+          <ul style="font-size:0.85rem; color:#065f46; padding-left:1.25rem; line-height:1.6;">
+            <li>Ensure bright, non-glare lighting across the foil surface.</li>
+            <li>Capture the side with printed text, brand, composition, and dates.</li>
+            <li>Hold the package flat and steady for sharp focus.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom container">
+      <div>&copy; <span id="current-year">2026</span> MediCare AI. Built for patient safety and transparency.</div>
+      <div class="footer-legal-links">
+        <a href="about.html">Privacy</a>
+        <a href="about.html">Terms</a>
+        <a href="about.html">Safety</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
+

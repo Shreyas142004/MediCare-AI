@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicine Strip Scanner - MediCare AI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">✚</span>
+        <span>MediCare<span style="color:var(--secondary)">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="scanner.html" class="nav-link active">Scanner</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Injected dynamically by main.js -->
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main class="container scanner-main">
+    <!-- Page Header -->
+    <div class="text-center scanner-header">
+      <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Multimodal Vision Pipeline</span>
+      <h1>Medicine Package & Tablet Strip Scanner</h1>
+      <p class="text-muted">
+        Upload or take a photo of the <strong>printed back side</strong> of any tablet strip, capsule blister pack, or medicine carton. MediCare AI reads the printed composition, manufacturer, batch, and dates, and correlates them with our verified clinical database.
+      </p>
+    </div>
+
+    <!-- Scanner Dropzone Area -->
+    <div class="card scanner-dropzone-card">
+      <div id="dropzone" class="dropzone-container">
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" style="display: none;">
+
+        <div id="drop-prompt">
+          <div class="dropzone-icon">📷</div>
+          <h3>Drag and drop your medicine strip photo here</h3>
+          <p class="text-muted" style="margin-bottom: 1.5rem;">Supports JPG, PNG, and WebP (up to 12 MB)</p>
+          
+          <div class="dropzone-actions">
+            <button type="button" id="browse-btn" class="btn-outline-primary btn">
+              📁 Browse Files
+            </button>
+            <button type="button" id="camera-btn" class="btn btn-secondary">
+              📸 Take Photo with Camera
+            </button>
+          </div>
+        </div>
+
+        <!-- Selected Image Preview -->
+        <div id="image-preview-box" class="image-preview-box" style="display: none;">
+          <img id="preview-img" alt="Medicine Packaging Preview">
+          <button type="button" id="remove-img-btn" class="btn-remove" title="Remove image">✕</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; text-align: center;">
+        <button id="start-scan-btn" class="btn btn-primary btn-lg" disabled style="min-width: 240px;">
+          🚀 Start Recognition & Analysis
+        </button>
+      </div>
+    </div>
+
+    <!-- 5-Stage Scanner Progress Indicator -->
+    <div id="scan-progress-card" class="scan-progress-card">
+      <div class="progress-header">
+        <div>
+          <h4 style="margin: 0;">Analyzing Medicine Packaging...</h4>
+          <span class="text-muted" style="font-size: 0.85rem;">Processing through multimodal vision and clinical matcher</span>
+        </div>
+        <span class="badge badge-primary">Multimodal Pipeline</span>
+      </div>
+
+      <div class="progress-bar-container">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+
+      <div class="stages-list">
+        <div id="stage-1" class="stage-item">
+          <span class="stage-icon">1</span>
+          <span>Upload & Contrast</span>
+        </div>
+        <div id="stage-2" class="stage-item">
+          <span class="stage-icon">2</span>
+          <span>Multimodal Vision</span>
+        </div>
+        <div id="stage-3" class="stage-item">
+          <span class="stage-icon">3</span>
+          <span>Dates & Entities</span>
+        </div>
+        <div id="stage-4" class="stage-item">
+          <span class="stage-icon">4</span>
+          <span>Dataset Match</span>
+        </div>
+        <div id="stage-5" class="stage-item">
+          <span class="stage-icon">5</span>
+          <span>Patient Guidance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scanner Results Layout -->
+    <div id="results-container" class="results-container">
+      
+      <!-- Status & Confidence Banner -->
+      <div id="result-status-banner" class="result-status-banner">
+        <!-- Injected dynamically by scanner.js -->
+      </div>
+
+      <!-- Packaging Notices & Warnings -->
+      <div id="warnings-wrapper" style="display: none;"></div>
+
+      <!-- 2-Column Comparison Grid: Packaging Facts vs Dataset Clinical Match -->
+      <div class="comparison-grid">
+        
+        <!-- Column A: Extracted Packaging Details (Physical Strip) -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">📦 Printed Packaging Details</h3>
+            <span class="badge badge-info">From Image</span>
+          </div>
+          <div id="extracted-package-fields">
+            <!-- Injected by scanner.js -->
+          </div>
+          <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.78rem; color:var(--text-muted);">
+            * Dates and batch numbers are read directly from physical packaging.
+          </div>
+        </div>
+
+        <!-- Column B: Verified Dataset Match (Database Catalog) -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">🏛️ Verified Clinical Catalog</h3>
+            <span class="badge badge-success">149k Database</span>
+          </div>
+          <div id="dataset-match-fields">
+            <!-- Injected by scanner.js -->
+          </div>
+          <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid var(--border-light); font-size:0.78rem; color:var(--text-muted);">
+            * Matched via NLP entity normalization against verified pharmaceutical records.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Alternative Candidates Section -->
+      <div id="alternative-matches-container" class="card" style="display:none; margin-bottom:2rem;"></div>
+
+      <!-- Patient-Friendly Explanation Layout -->
+      <div class="explanation-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid #bfdbfe;">
+          <h3 style="margin:0; color:var(--primary-dark);">📖 Patient Information & Guide</h3>
+          <span class="badge badge-primary">Clear Language</span>
+        </div>
+        <div id="patient-explanation-body">
+          <!-- Injected by scanner.js -->
+        </div>
+      </div>
+
+      <!-- Medical Disclaimer -->
+      <div class="disclaimer-box">
+        <strong>⚠️ Important Medical Disclaimer:</strong> This analysis is intended for informational and educational purposes only. It is not a prescription or clinical diagnosis. Never start, modify, or stop taking any medication without consulting a qualified healthcare professional, prescribing physician, or licensed pharmacist.
+      </div>
+
+      <!-- Dedicated Printable Clinical Summary Document (Structured for PDF / Print) -->
+      <div id="printable-summary-sheet" class="printable-summary-sheet" style="display:none;">
+        <!-- Injected dynamically by scanner.js for print / PDF generation -->
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="no-print" style="display:flex; gap:1rem; justify-content:center; margin-top:2.5rem; flex-wrap:wrap;">
+        <button id="scan-another-btn" class="btn btn-primary btn-lg">📷 Scan Another Strip</button>
+        <button id="print-summary-btn" class="btn-outline btn btn-lg">📄 Print / Save PDF Summary</button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Live Webcam Modal -->
+  <div id="webcam-modal" class="modal-backdrop">
+    <div class="modal-content" style="max-width: 600px;">
+      <button id="webcam-close-btn" class="modal-close" aria-label="Close camera">✕</button>
+      <h3 style="margin-bottom: 1rem;">Capture Medicine Packaging</h3>
+      <div class="webcam-video-wrap">
+        <video id="webcam-video" autoplay playsinline></video>
+      </div>
+      <div class="webcam-controls">
+        <button id="webcam-capture-btn" class="btn btn-primary btn-lg">📸 Capture Photo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom container">
+      <div>&copy; <span id="current-year">2026</span> MediCare AI. Built for patient safety and transparency.</div>
+      <div class="footer-legal-links">
+        <a href="about.html">Privacy</a>
+        <a href="about.html">Terms</a>
+        <a href="about.html">Safety</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/scanner.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediCare AI - Intelligent Medicine Strip Recognition & Verification</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">✚</span>
+        <span>MediCare<span style="color:var(--secondary)">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="scanner.html" class="nav-link">Scanner</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Rendered dynamically by main.js -->
+        <a href="login.html" class="btn-outline btn btn-sm">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm nav-signup-btn">Get Started</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-grid container">
+      <div>
+        <div class="hero-pill">
+          <span>✨ Powered by Google Gemini Vision & 149k+ Medicine Database</span>
+        </div>
+        <h1>Instant Medicine Recognition From <span>Tablet Strips</span></h1>
+        <p>
+          Snap a photo of the printed back side of any tablet strip or blister pack. MediCare AI reads the active composition, strength, and dates, and translates clinical details into crystal-clear patient explanations.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="scanner.html" class="btn btn-primary btn-lg">📷 Scan Medicine Strip</a>
+          <a href="about.html" class="btn-outline btn btn-lg">Explore How It Works</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3>149,267</h3>
+            <p>Indexed Medicines</p>
+          </div>
+          <div class="hero-stat">
+            <h3>Multimodal</h3>
+            <p>Gemini Vision AI</p>
+          </div>
+          <div class="hero-stat">
+            <h3>100% Free</h3>
+            <p>Patient Health Portal</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-preview">
+        <div class="hero-preview-inner">
+          <div class="hero-preview-badges">
+            <span class="badge badge-success">● Engine Ready</span>
+            <span class="badge badge-primary">Multimodal Vision</span>
+          </div>
+
+          <div class="hero-preview-callout">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">📸</div>
+            <h4 style="color:var(--text-main); margin-bottom:0.25rem;">Tablet Strip Recognition</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Capture or upload the printed back side of any medicine strip</p>
+            <a href="scanner.html" class="btn btn-primary btn-sm" style="display:inline-flex; align-items:center; gap:0.5rem;">
+              <span>Open Scanner</span> &rarr;
+            </a>
+          </div>
+
+          <div class="hero-preview-steps">
+            <div class="hero-step-item">
+              <span style="color:var(--primary); font-weight:600;">1.</span>
+              <span>Reads printed active ingredients, strength &amp; brand</span>
+            </div>
+            <div class="hero-step-item">
+              <span style="color:var(--primary); font-weight:600;">2.</span>
+              <span>Extracts physical expiry date &amp; batch number from strip</span>
+            </div>
+            <div class="hero-step-item">
+              <span style="color:var(--primary); font-weight:600;">3.</span>
+              <span>Cross-verifies against 149k+ clinical medicine records</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Capabilities Grid -->
+  <section class="container key-capabilities-section">
+    <div class="text-center" style="max-width: 650px; margin: 0 auto 3rem;">
+      <span class="badge badge-primary" style="margin-bottom:0.75rem;">Key Capabilities</span>
+      <h2>Designed for Accurate, Transparent Medicine Recognition</h2>
+      <p class="text-muted">Overcoming reflective foil, small fonts, vertical orientation, and cryptic medical jargon.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">🔬</div>
+        <h3>Multimodal Vision Engine</h3>
+        <p class="text-muted">Analyzes complex medicine strip packaging using Google Gemini Multimodal Vision API, with automated fallback to orientation-aware OCR.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-green">📦</div>
+        <h3>Packaging vs Catalog Separation</h3>
+        <p class="text-muted">Batch numbers, manufacturing dates, and expiry dates come strictly from your physical packaging—never fabricated from a catalog.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-purple">📚</div>
+        <h3>149,000+ Medicine Dataset</h3>
+        <p class="text-muted">Hybrid NLP entity resolution matches brand names and active salts against verified clinical databases powered by MongoDB and SQLite.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-amber">💡</div>
+        <h3>Simple Patient Explanations</h3>
+        <p class="text-muted">Explains what the medicine is, why doctors prescribe it, how it works, and critical safety warnings in friendly, accessible language.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Flow -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <div class="text-center" style="max-width: 650px; margin: 0 auto 3rem;">
+        <span class="badge badge-success" style="margin-bottom:0.75rem;">How It Works</span>
+        <h2>From Strip to Safety in 4 Simple Steps</h2>
+      </div>
+
+      <div class="feature-grid" style="margin:0;">
+        <div class="text-center card">
+          <div style="font-size:2rem; margin-bottom:1rem;">📸</div>
+          <h4>1. Upload or Snap</h4>
+          <p class="text-muted">Take a clear photo of the back side of your tablet strip using your camera or phone.</p>
+        </div>
+
+        <div class="text-center card">
+          <div style="font-size:2rem; margin-bottom:1rem;">🤖</div>
+          <h4>2. AI Vision Analysis</h4>
+          <p class="text-muted">Gemini extracts visible printed text: medicine name, strength, salts, manufacturer, batch, and expiry.</p>
+        </div>
+
+        <div class="text-center card">
+          <div style="font-size:2rem; margin-bottom:1rem;">🔍</div>
+          <h4>3. Clinical Matching</h4>
+          <p class="text-muted">NLP matches the extracted brand or salt against our 149k medicine database with confidence scoring.</p>
+        </div>
+
+        <div class="text-center card">
+          <div style="font-size:2rem; margin-bottom:1rem;">🛡️</div>
+          <h4>4. Understand & Save</h4>
+          <p class="text-muted">Read simple explanations, side effects, and precautions. Save scans to your personal history.</p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:3rem;">
+        <a href="scanner.html" class="btn btn-primary btn-lg">Try the Scanner Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer Footer Banner -->
+  <div class="container landing-cta-section">
+    <div class="disclaimer-box">
+      <strong>⚠️ Medical Disclaimer:</strong> MediCare AI is an informational and educational tool designed to assist with medicine identification. It does not provide medical diagnosis, clinical judgment, or treatment recommendations. Always consult a licensed medical professional, doctor, or pharmacist before taking or discontinuing any medication.
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="nav-brand" style="margin-bottom:1rem;">
+            <span class="brand-icon">✚</span>
+            <span>MediCare<span style="color:var(--secondary)">AI</span></span>
+          </a>
+          <p class="text-muted" style="font-size:0.9rem; max-width:320px;">
+            Intelligent medicine recognition and patient explanation platform powered by Google Gemini Vision and deep clinical datasets.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="scanner.html">Medicine Scanner</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="history.html">Scan History</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="login.html">Sign In</a></li>
+            <li><a href="register.html">Create Account</a></li>
+            <li><a href="profile.html">Profile Settings</a></li>
+            <li><a href="forgot-password.html">Forgot Password</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="about.html">About MediCare</a></li>
+            <li><a href="/docs" target="_blank">API Documentation</a></li>
+            <li><a href="about.html#privacy">Privacy Policy</a></li>
+            <li><a href="about.html#disclaimer">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; <span id="current-year">2026</span> MediCare AI. Built for patient safety and transparency.</div>
+        <div class="footer-legal-links">
+          <a href="about.html">Privacy</a>
+          <a href="about.html">Terms</a>
+          <a href="about.html">Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

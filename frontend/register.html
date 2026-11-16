@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Free Account - MediCare AI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">✚</span>
+        <span>MediCare<span style="color:var(--secondary)">AI</span></span>
+      </a>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-outline btn btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="feature-icon icon-green" style="margin:0 auto 1rem;">🩺</div>
+        <h2>Join MediCare AI</h2>
+        <p class="text-muted">Create your free account to track and save medicine scans</p>
+      </div>
+
+      <form id="register-form">
+        <div class="form-group">
+          <label class="form-label" for="full_name">Full Name</label>
+          <input type="text" id="full_name" class="form-control" placeholder="Jane Doe" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="name@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone Number (Optional)</label>
+          <input type="tel" id="phone" class="form-control" placeholder="+91 98765 43210" autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Create Password</label>
+          <div class="input-password-wrap">
+            <input type="password" id="password" class="form-control" placeholder="At least 6 characters" required autocomplete="new-password">
+          </div>
+          <span class="form-text">Must be at least 6 characters.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="confirm_password">Confirm Password</label>
+          <div class="input-password-wrap">
+            <input type="password" id="confirm_password" class="form-control" placeholder="Re-enter password" required autocomplete="new-password">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-block btn btn-primary btn-lg" style="margin-top:1.5rem;">
+          Create Free Account
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html" class="font-semibold">Sign in here</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
+

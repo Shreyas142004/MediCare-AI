@@ -1,0 +1,33 @@
+# Environment variables and API credentials
+.env
+backend/.env
+*.env
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Database files
+*.db
+backend/medicare.db
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Project Report & Documentation
+Report/
+backend/reports/
+
+# Datasets (exceeds GitHub 100MB limit)
+dataset/
+*.csv
+*.xlsx
+
+
+

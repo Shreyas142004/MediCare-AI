@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile & Settings - MediCare AI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">✚</span>
+        <span>MediCare<span style="color:var(--secondary)">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="scanner.html" class="nav-link">Scanner</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Injected dynamically by main.js -->
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main class="container container-narrow profile-main">
+    <!-- Profile Banner -->
+    <div class="card profile-banner-card">
+      <div style="width: 64px; height: 64px; border-radius: var(--radius-pill); background: var(--primary-bg); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+        👤
+      </div>
+      <div>
+        <h2 id="profile-display-name" style="margin: 0;">Loading profile...</h2>
+        <p id="profile-display-email" class="text-muted" style="margin: 0;">user@example.com</p>
+      </div>
+    </div>
+
+    <!-- Personal & Medical Details Card -->
+    <div class="card" style="margin-bottom: 2rem;">
+      <div class="card-header">
+        <h3 class="card-title">👤 Personal & Medical Information</h3>
+      </div>
+
+      <form id="profile-form">
+        <div class="form-group">
+          <label class="form-label" for="profile-name">Full Name</label>
+          <input type="text" id="profile-name" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="profile-email">Email Address</label>
+          <input type="email" id="profile-email" class="form-control" readonly style="background:#f1f5f9;">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="profile-phone">Phone Number</label>
+          <input type="tel" id="profile-phone" class="form-control" placeholder="+91 98765 43210">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="profile-allergies">Known Drug Allergies</label>
+          <input type="text" id="profile-allergies" class="form-control" placeholder="e.g., Penicillin, Sulfa drugs, Aspirin">
+          <span class="form-text">Used for personalized warnings during medicine scanning.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="profile-notes">Health Notes & Conditions</label>
+          <textarea id="profile-notes" class="form-control" rows="3" placeholder="e.g., Hypertension, Type 2 Diabetes"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">
+          Save Profile Changes
+        </button>
+      </form>
+    </div>
+
+    <!-- Security & Password Card -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">🔒 Password & Security</h3>
+      </div>
+
+      <form id="change-password-form">
+        <div class="form-group">
+          <label class="form-label" for="old_password">Current Password</label>
+          <input type="password" id="old_password" class="form-control" required autocomplete="current-password">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="new_password">New Password</label>
+          <input type="password" id="new_password" class="form-control" placeholder="At least 6 characters" required autocomplete="new-password">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="confirm_new_password">Confirm New Password</label>
+          <input type="password" id="confirm_new_password" class="form-control" placeholder="Re-enter new password" required autocomplete="new-password">
+        </div>
+
+        <button type="submit" class="btn-outline-primary btn">
+          Update Password
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom container">
+      <div>&copy; <span id="current-year">2026</span> MediCare AI. Built for patient safety and transparency.</div>
+      <div class="footer-legal-links">
+        <a href="about.html">Privacy</a>
+        <a href="about.html">Terms</a>
+        <a href="about.html">Safety</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
+

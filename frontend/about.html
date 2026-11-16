@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About MediCare AI - Intelligent Medicine Recognition</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon">✚</span>
+        <span>MediCare<span style="color:var(--secondary)">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="scanner.html" class="nav-link">Scanner</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="history.html" class="nav-link">History</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Injected dynamically by main.js -->
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main class="container about-main">
+    <!-- About Hero -->
+    <div class="text-center about-hero">
+      <span class="badge badge-primary" style="margin-bottom:0.75rem;">About MediCare AI</span>
+      <h1>Making Medicine Information Accessible, Transparent, and Safe</h1>
+      <p class="text-muted">
+        Combining Google Gemini Multimodal Vision with a verified 149,000+ medicine database to help patients and caregivers read, understand, and safely manage medications.
+      </p>
+    </div>
+
+    <!-- Mission & Story -->
+    <div class="about-mission-grid">
+      <div class="about-mission-content">
+        <span class="badge badge-success" style="margin-bottom:0.75rem;">Our Mission</span>
+        <h2>Overcoming Packaging Illegibility</h2>
+        <p class="text-muted">
+          Every day, millions of people struggle to read tiny text printed on foil blister packs, confusing active chemical salts with brand names, or misreading critical expiration dates.
+        </p>
+        <p class="text-muted">
+          MediCare AI was engineered from the ground up to solve this exact problem: accepting clear photos of the back side of medicine strips, extracting printed text regardless of orientation, and providing verified, plain-language patient explanations.
+        </p>
+      </div>
+
+      <div class="card about-architecture-card">
+        <h3 style="color:var(--primary-dark); margin-bottom:1rem;">Core Architecture</h3>
+        <ul class="about-architecture-list">
+          <li><strong>Multimodal Vision AI:</strong> Google Gemini API structured extraction</li>
+          <li><strong>Local Fallback Engine:</strong> Orientation-aware CRAFT + EasyOCR</li>
+          <li><strong>Dataset Scale:</strong> 149,267 deduplicated pharmaceutical records</li>
+          <li><strong>Database Engine:</strong> MongoDB full-text search with SQLite FTS5 fallback</li>
+          <li><strong>Pure Frontend:</strong> High-performance HTML5, CSS3, Vanilla JS</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Anti-Hallucination Philosophy -->
+    <section class="card about-section-card">
+      <span class="badge badge-warning" style="margin-bottom:0.75rem;">Safety & Integrity</span>
+      <h2>Our Anti-Hallucination & Separation Standard</h2>
+      <p class="text-muted">
+        In healthcare applications, automated fabrication of medical details can have severe consequences. MediCare AI adheres to strict architectural safeguards:
+      </p>
+
+      <div class="feature-grid about-safeguards-grid">
+        <div class="safeguard-card">
+          <h4>1. Strict Packaging Isolation</h4>
+          <p class="text-muted" style="font-size:0.88rem; margin:0;">
+            Batch numbers, manufacturing dates (MFG), and expiration dates (EXP) are extracted exclusively from the uploaded photo. They are never inferred or populated from the dataset.
+          </p>
+        </div>
+
+        <div class="safeguard-card">
+          <h4>2. Explicit Uncertainty</h4>
+          <p class="text-muted" style="font-size:0.88rem; margin:0;">
+            When text on a strip is obscured by glare or wear, our pipeline marks the field as uncertain rather than guessing the salt or dosage.
+          </p>
+        </div>
+
+        <div class="safeguard-card">
+          <h4>3. No Prescriptive Advice</h4>
+          <p class="text-muted" style="font-size:0.88rem; margin:0;">
+            MediCare provides informational educational content only. It does not prescribe medicines or calculate therapeutic dosages.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medical Disclaimer Section -->
+    <div id="disclaimer" class="disclaimer-box about-disclaimer-box">
+      <h3 style="color:#92400e; margin-bottom:0.75rem;">⚠️ Comprehensive Medical Disclaimer</h3>
+      <p>
+        The MediCare AI platform and its recognition results are provided for informational, educational, and reference purposes only. The information generated by this service is not medical advice, clinical diagnosis, or treatment recommendations.
+      </p>
+      <p style="margin:0;">
+        Never disregard professional medical advice or delay seeking medical evaluation because of information presented by this software. Always consult a licensed physician, clinical pharmacist, or registered healthcare provider regarding any prescription, over-the-counter medicine, or health symptom.
+      </p>
+    </div>
+
+    <!-- Privacy & Security -->
+    <div id="privacy" class="card about-section-card">
+      <h3 style="margin-bottom:0.75rem;">🔒 Privacy & Credential Security</h3>
+      <p class="text-muted">
+        Your security is paramount. All uploaded strip images are processed securely through the backend application. Sensitive API credentials (including Google Gemini API keys) are stored strictly on the server and are never exposed in browser storage, client JavaScript, or frontend network traffic.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom container">
+      <div>&copy; <span id="current-year">2026</span> MediCare AI. Built for patient safety and transparency.</div>
+      <div class="footer-legal-links">
+        <a href="about.html">Privacy</a>
+        <a href="about.html">Terms</a>
+        <a href="about.html">Safety</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
